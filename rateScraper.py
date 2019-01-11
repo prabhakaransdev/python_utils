@@ -3,20 +3,20 @@
 from html.parser import HTMLParser
 import urllib.request as urllib2
 marker = 0
-tag = ''
+rate = ''
 
 class myHTMLParser(HTMLParser):
 	def handle_data(self, data):
 		global marker
-		global tag
+		global rate
 		if(marker == 1):
-			tag = data
+			rate = data
 			marker = 0
 		if(data == "ZAR - INR"): 
 			marker += 1
 		
 parser = myHTMLParser()
-ccy = urllib2.urlopen("https://www.statebank.co.za/conversion-rates.aspx")
-ccyhtml = ccy.read()
+urlcon = urllib2.urlopen("https://www.statebank.co.za/conversion-rates.aspx")
+ccyhtml = urlcon.read()
 parser.feed(str(ccyhtml))
-print('ZAR-INR: '+tag)
+print('ZAR-INR: '+rate)
