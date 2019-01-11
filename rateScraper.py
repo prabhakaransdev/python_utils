@@ -1,5 +1,5 @@
 #author	 :	PrabhakaranS
-#purpose :	utility for scraping zar_in exch_rate from sbi.co.za
+#purpose :	utility for scraping zar_inr exch_rate from sbi.co.za
 from html.parser import HTMLParser
 import urllib.request as urllib2
 marker = 0
