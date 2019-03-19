@@ -1,2 +1,2 @@
 # python_utils
-utilities scripts developed in python
+utility scripts developed in python
