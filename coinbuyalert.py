@@ -30,9 +30,9 @@ def coinwatch():
 					wval = round(hval/float(data['ask']),2)
 					printdata += ki +': '+vi+' * '+data['ask'] + '='+str(wval)+' <> '
 					if wval >= float(vi):
-						print('buy now.')
+						print('buy '+ki+' now.')
 						misound.play()
-						telePing.send(msg)
+						telePing.send(printdata)
 				
 		except Exception as e:
 			print('cant reach the network: ' +str(e))
