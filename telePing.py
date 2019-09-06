@@ -1,4 +1,5 @@
-#This script is independet of lib or python version (tested on python 2.7 and 3.5)
+#author	 :	PrabhakaranS
+#purpose :	python script to send telegram message to a chat
 
 import telegram
 #token that can be generated talking with @BotFather on telegram
