@@ -4,6 +4,7 @@ import requests
 import json
 from  collections import OrderedDict
 import misound
+import telePing
 from time import sleep
 import proxy
 
@@ -23,14 +24,15 @@ def coinwatch():
 				response = requests.request("GET", url)
 				data =  json.loads(response.text)
 				if (k == 'have'):
-					hval = round(float(vi) * float(data['ask']),2)
-					printdata = ki +': '+vi+' * '+data['ask'] + '='+str(hval)+' <> '
+					hval = round(float(vi) * float(data['bid']),2)
+					printdata = ki +': '+vi+' * '+data['bid'] + '='+str(hval)+' <> '
 				else :
-					wval = round(hval/float(data['bid']),2)
-					printdata += ki +': '+vi+' * '+data['bid'] + '='+str(wval)+' <> '
+					wval = round(hval/float(data['ask']),2)
+					printdata += ki +': '+vi+' * '+data['ask'] + '='+str(wval)+' <> '
 					if wval >= float(vi):
 						print('buy now.')
 						misound.play()
+						telePing.send(msg)
 				
 		except Exception as e:
 			print('cant reach the network: ' +str(e))
