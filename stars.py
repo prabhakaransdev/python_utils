@@ -1,6 +1,6 @@
 #sulime text plugin to underline words with stars
-
 import sublime, sublime_plugin
+
 class StarsCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         #text selection
